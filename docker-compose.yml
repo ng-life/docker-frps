@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  frps:
+    image: ng4life/frps:0.64.0
+    container_name: frps-service
+    restart: always  # 容器退出时自动重启
+    # 传递参数给 frps（对应 -p 和 -t 选项）
+    command: -p 17000 -t 【密码】
+    # 端口映射：宿主机端口:容器端口（TCP/UDP 需分别指定）
+    ports:
+      - "17000:17000/tcp"       # TCP 端口映射（frps服务端口）
+      - "17000:17000/udp"       # UDP 端口映射
+      - "16800-16888:16800-16888" # TCP 端口映射（对外服务端口）
+    # 可选：添加日志限制（避免日志过大）
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"    # 单个日志文件最大 10MB
+        max-file: "3"      # 最多保留 3 个日志文件
