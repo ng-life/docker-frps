@@ -24,4 +24,4 @@ jobs:
         push: true
         tags: |
           ng4life/frps:latest
-          ng4life/frps:0.64.0
+          ng4life/frps:0.65.0
