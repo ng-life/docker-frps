@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   frps:
-    image: ng4life/frps:0.64.0
+    image: ng4life/frps:0.65.0
     container_name: frps-service
     restart: always  # 容器退出时自动重启
     # 传递参数给 frps（对应 -p 和 -t 选项）
