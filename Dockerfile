@@ -5,7 +5,7 @@ ARG version
 RUN wget https://github.com/fatedier/frp/releases/download/v${version}/frp_${version}_linux_amd64.tar.gz
 RUN tar xzvf frp_${version}_linux_amd64.tar.gz
 
-FROM scratch
+FROM debian:stable-slim
 ARG version
 COPY --from=download frp_${version}_linux_amd64/frps /bin/frps
 COPY --from=download frp_${version}_linux_amd64/LICENSE /LICENSE
